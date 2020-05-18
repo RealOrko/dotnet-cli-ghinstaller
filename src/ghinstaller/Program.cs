@@ -44,6 +44,8 @@ namespace ghinstaller
                     Console.WriteLine("Exiting with code -1");
                     result = -1;
                 }
+                
+                Console.WriteLine("\r\n");
             }
 
             return result;
