@@ -2,15 +2,15 @@
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<AssemblyName>z</AssemblyName>
+		<AssemblyName>ghi</AssemblyName>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<PackAsTool>true</PackAsTool>
+		<PackAsTool>false</PackAsTool>
 		<ToolCommandName>ghi</ToolCommandName>
 		<PackageOutputPath>../../build</PackageOutputPath>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<PropertyGroup>
