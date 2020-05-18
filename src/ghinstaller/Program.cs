@@ -28,7 +28,7 @@ namespace ghinstaller
                 if (dispatcher == null)
                 {
                     PrintUsage();
-                    result = 1;
+                    return 1;
                 }
 
                 result = dispatcher.Execute();
