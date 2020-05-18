@@ -1,58 +1,59 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net.Http;
-using System.Net.Http.Headers;
+using ghinstaller.Modules.Commands.Options;
+using ghinstaller.Modules.Commands.Routing;
+using ghinstaller.Modules.Formatters;
+using ghinstaller.Modules.Versioning;
 
 namespace ghinstaller
 {
     class Program
     {
-        const int OrgOrdinal = 0;
-        private const string GitHubUri = "https://api.github.com";
+        private static CommandRouter _router = new CommandRouter();
         
-        private static HttpClient client = new HttpClient();
-        
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
-            if (args.Length == 0 || args[0] == "--help" || args[0] == "/?" || args[0] == "?" || args.Length < 1)
+            if (args.Length == 0 || args[0] == "--help" || args[0] == "/?" || args[0] == "?")
             {
                 PrintUsage();
-                return;
+                return 1;
             }
 
-            client.BaseAddress = new Uri(GitHubUri);
-            client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("ghinstaller", "0.0.1"));
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.inertia-preview+json"));
-            
-            var orgValue = args[OrgOrdinal];
+            var result = 0;
 
-            if (args.Length == 1)
+            try
             {
-                ListProjectsForOrganisation(orgValue);
+                var dispatcher = _router.Route(args);
+                if (dispatcher == null)
+                {
+                    PrintUsage();
+                    result = 1;
+                }
+
+                result = dispatcher.Execute();
+
             }
-            
+            catch (Exception err)
+            {
+                using (new InColour(ConsoleColor.Red, ConsoleColor.Black))
+                {
+                    Console.WriteLine(err.ToString());
+                    Console.WriteLine();
+                    Console.WriteLine(err.InnerException?.Message);
+                    Console.WriteLine("Exiting with code -1");
+                    result = -1;
+                }
+            }
+
+            return result;
         }
 
-        public static void ListProjectsForOrganisation(string organisation)
-        {
-            if (organisation == null) throw new ArgumentNullException(nameof(organisation));
-
-            var response = client
-                .GetAsync($"/orgs/{organisation}/projects/")
-                .GetAwaiter()
-                .GetResult();
-            
-            Console.WriteLine(response.StatusCode);
-            Console.WriteLine(response.Content.ReadAsStringAsync().GetAwaiter().GetResult());
-        }
 
         static void PrintUsage()
         {
-            Console.WriteLine("dotnet cli ghinstaller");
-            Console.WriteLine("----------------------");
-            Console.WriteLine("Usage:");
-            Console.WriteLine("   > ghi github.com cloundfoundry bosh-bootloader");
+            Console.WriteLine($"ghi v{Info.GetVersion()} by realorko \r\n");
+            CommandParser.InfoAll();
         }
     }
 }
