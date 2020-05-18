@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<AssemblyName>z</AssemblyName>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackAsTool>true</PackAsTool>
+		<ToolCommandName>ghi</ToolCommandName>
+		<PackageOutputPath>../../build</PackageOutputPath>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Authors>RealOrko</Authors>
+		<Description>A quick way of installing github releases on linx-x64/win-x64/osx-x64 :)</Description>
+		<PackageId>dotnet-cli-ghinstaller</PackageId>
+		<Title>dotnet cli github binary installer tool</Title>
+		<PackageTags>dotnet,cli,github,release, install</PackageTags>
+		<Product>dotnet cli github release installer</Product>
+		<BuildVersion>0.0.1</BuildVersion>
+		<BuildVersion Condition="'$(APPVEYOR_BUILD_VERSION)'!=''">$(APPVEYOR_BUILD_VERSION)</BuildVersion>
+		<BuildVersionMajor>$(BuildVersion.Split('.')[0])</BuildVersionMajor>
+		<BuildVersionNoSuffix>$(BuildVersion.Split('-')[0])</BuildVersionNoSuffix>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<FileVersion>$(BuildVersionNoSuffix)</FileVersion>
+		<VersionPrefix>$(BuildVersion)</VersionPrefix>
+		<AssemblyVersion>$(BuildVersionMajor).0.0</AssemblyVersion>
+		<PackageLicense>http://www.apache.org/licenses/LICENSE-2.0.html</PackageLicense>
+		<PackageProjectUrl>https://github.com/RealOrko/dotnet-cli-zip</PackageProjectUrl>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageVersion>$(BuildVersion)</PackageVersion>
+		<IncludeSymbols>true</IncludeSymbols>
+		<IncludeSource>false</IncludeSource>
+		<CurrentYear>$([System.DateTime]::Now.ToString("yyyy"))</CurrentYear>
+		<Copyright>Copyright 2019-$(CurrentYear) RealOrko </Copyright>
+		<ContentTargetFolders>.</ContentTargetFolders>
+		<Version>0.0.1</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+	</ItemGroup>
+
+</Project>
