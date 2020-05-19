@@ -20,7 +20,7 @@ namespace ghinstaller.Commands
         {
             if (!args.IsValid())
             {
-                CommandParser.Info(typeof(ListReleaseCommand));
+                CommandParser.Info(typeof(DownloadReleaseCommand));
                 return -1;
             }
 
@@ -94,6 +94,21 @@ namespace ghinstaller.Commands
                     {
                         GitHubClient.Download(release.TarBallUrl, $"{release.Name}.tar");
                         GitHubClient.Download(release.ZipBallUrl, $"{release.Name}.zip");
+                        
+                        var assets = GitHubClient.GetAssets(release);
+
+                        if (!string.IsNullOrEmpty(args.AssetsFind))
+                        {
+                            assets = assets.Where(x => x.Name.Contains(args.AssetsFind)).ToList();
+                        }
+                        
+                        if (assets != null && assets.Count > 0)
+                        {
+                            foreach (var asset in assets)
+                            {
+                                GitHubClient.Download(asset.DownloadUrl, asset.Name);
+                            }
+                        }
                     }
                 }
                 

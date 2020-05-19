@@ -20,7 +20,7 @@ namespace ghinstaller.Commands
         {
             if (!args.IsValid())
             {
-                CommandParser.Info(typeof(ListTagCommand));
+                CommandParser.Info(typeof(DownloadTagCommand));
                 return -1;
             }
 
