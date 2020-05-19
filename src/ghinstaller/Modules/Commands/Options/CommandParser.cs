@@ -89,7 +89,7 @@ namespace ghinstaller.Modules.Commands.Options
             if (bindableAttribute != null)
             {
                 var argumentType = bindableAttribute.Arguments;
-                return ArgumentsParser.Parse(argumentType, args);
+                return ArgumentsParser.Parse(commandType, argumentType, args);
             }
 
             throw new Exception($"Cannot bind parameters for command, there is no BindsAttribute on {commandType.FullName}.");

@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
-using ghinstaller.Commands;
 
 namespace ghinstaller.Modules.Commands.Options
 {
     public class ArgumentsParser
     {
-        public static object Parse(Type argumentsType, string[] args, Func<string, string> getEnvironmentVariable = null)
+        public static object Parse(Type commandType, Type argumentsType, string[] args, Func<string, string> getEnvironmentVariable = null)
         {
             var target = Activator.CreateInstance(argumentsType);
             var availableCommandArguments = new List<string>();
@@ -33,29 +31,27 @@ namespace ghinstaller.Modules.Commands.Options
                 }
             }
 
-            ValidateArguments(argumentsType, args, availableCommandArguments);
+            ValidateArguments(commandType, argumentsType, args, availableCommandArguments);
 
             return target;
         }
 
-        private static void ValidateArguments(Type argumentsType, string[] args, List<string> availableCommandArguments)
+        private static void ValidateArguments(Type commandType, Type argumentsType, string[] args, List<string> availableCommandArguments)
         {
-            if (argumentsType.Name != nameof(ListReleaseArguments))
+            var paramArgs = args.Where(a => a.StartsWith("-"));
+            var invalidArguments = paramArgs.Where(a => !availableCommandArguments.Contains(a.ToLowerInvariant()));
+            if (invalidArguments.Any())
             {
-                availableCommandArguments.AddRange(new List<string> { "--user", "-u", "--pass", "-p", "--host", "-h" });
-                var paramArgs = args.Where(a => a.StartsWith("-"));
-                var invalidArguments = paramArgs.Where(a => !availableCommandArguments.Contains(a.ToLowerInvariant()));
-                if (invalidArguments.Any())
-                {
-                    throw new InvalidEnumArgumentException(
-                        $"The following invalid arguments were passed {string.Join(",", invalidArguments)} for {argumentsType.Name}");
-                }
+                CommandParser.Info(commandType);
+                
+                throw new ArgumentException(
+                    $"The following invalid arguments were passed {string.Join(",", invalidArguments)} for {argumentsType.Name}");
             }
         }
 
-        public static T Parse<T>(string[] args, Func<string, string> getEnvironmentVariable = null) where T : new()
+        public static T Parse<T>(Type commandType, string[] args, Func<string, string> getEnvironmentVariable = null) where T : new()
         {
-            return (T) Parse(typeof(T), args, getEnvironmentVariable);
+            return (T) Parse(commandType, typeof(T), args, getEnvironmentVariable);
         }
 
         private static IEnumerable<string> GetEnvironmentVariableAndDefaultValue(ArgumentAttribute attribute, Func<string, string> getEnvironmentVariable = null)

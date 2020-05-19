@@ -14,10 +14,10 @@ namespace ghinstaller.Commands
         [Argument(ShortName = "-f", LongName = "-find", Help = "The name of the tag to filter on eg. -f v1")]
         public string Find { get; set; }
         
-        [Argument(ShortName = "-t", LongName = "-tarball", Help = "Only output the tarball url of the tag eg. -t")]
+        [Argument(ShortName = "-t", LongName = "-tarball", Help = "Only download the tarball url of the tag eg. -t")]
         public bool TarballOnly { get; set; }
 
-        [Argument(ShortName = "-z", LongName = "-zipball", Help = "Only output the zipball url of the tag eg. -z")]
+        [Argument(ShortName = "-z", LongName = "-zipball", Help = "Only download the zipball url of the tag eg. -z")]
         public bool ZipballOnly { get; set; }
 
         public bool IsValid()

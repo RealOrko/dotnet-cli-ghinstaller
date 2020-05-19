@@ -10,14 +10,20 @@ namespace ghinstaller.Commands
         
         [Argument(ShortName = "-r", LongName = "-repository", EnvVar = "GHI_REPOSITORY", Help = "The name of the GitHub Organisation eg. -r dotnet-cli-zip")]
         public string Repository { get; set; }
+        
+        [Argument(ShortName = "-f", LongName = "-find", Help = "The name of the release to filter on eg. -f v1")]
+        public string Find { get; set; }
+        
+        [Argument(ShortName = "-af", LongName = "-assetfind", Help = "The name of the asset to filter on eg. -af linux")]
+        public string AssetsFind { get; set; }
 
-        [Argument(ShortName = "-t", LongName = "-tarball", Help = "Only output the tarball url of the release eg. -t")]
+        [Argument(ShortName = "-t", LongName = "-tarball", Help = "Only download the tarball url of the release eg. -t")]
         public bool TarballOnly { get; set; }
 
-        [Argument(ShortName = "-z", LongName = "-zipball", Help = "Only output the zipball url of the release eg. -z")]
+        [Argument(ShortName = "-z", LongName = "-zipball", Help = "Only download the zipball url of the release eg. -z")]
         public bool ZipballOnly { get; set; }
 
-        [Argument(ShortName = "-a", LongName = "-assets", Help = "Only output the assets of the release eg. -a")]
+        [Argument(ShortName = "-a", LongName = "-assets", Help = "Only download the assets of the release eg. -a")]
         public bool AssetsOnly { get; set; }
 
         public bool IsValid()
