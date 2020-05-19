@@ -14,14 +14,14 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
+		<Version>0.0.2</Version>
 		<Authors>RealOrko</Authors>
 		<Description>A quick way of installing github releases on linx-x64/win-x64/osx-x64 :)</Description>
 		<PackageId>dotnet-cli-ghinstaller</PackageId>
 		<Title>dotnet cli github binary installer tool</Title>
 		<PackageTags>dotnet,cli,github,release, install</PackageTags>
 		<Product>dotnet cli github release installer</Product>
-		<BuildVersion>0.0.1</BuildVersion>
-		<BuildVersion Condition="'$(APPVEYOR_BUILD_VERSION)'!=''">$(APPVEYOR_BUILD_VERSION)</BuildVersion>
+		<BuildVersion>$(Version)</BuildVersion>
 		<BuildVersionMajor>$(BuildVersion.Split('.')[0])</BuildVersionMajor>
 		<BuildVersionNoSuffix>$(BuildVersion.Split('-')[0])</BuildVersionNoSuffix>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -37,7 +37,6 @@
 		<CurrentYear>$([System.DateTime]::Now.ToString("yyyy"))</CurrentYear>
 		<Copyright>Copyright 2019-$(CurrentYear) RealOrko </Copyright>
 		<ContentTargetFolders>.</ContentTargetFolders>
-		<Version>0.0.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
