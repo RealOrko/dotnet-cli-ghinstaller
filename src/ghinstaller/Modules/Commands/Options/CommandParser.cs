@@ -40,7 +40,7 @@ namespace ghinstaller.Modules.Commands.Options
                     var argumentAttribute = propertyInfo.GetCustomAttributes(typeof(ArgumentAttribute), false).Cast<ArgumentAttribute>().FirstOrDefault();
                     if (argumentAttribute != null && argumentAttribute.IsVisible)
                     {
-                        builder.AppendLine(string.Format($"   {argumentAttribute.DescribeParam()}"));
+                        builder.AppendLine(string.Format($"   {argumentAttribute.DescribeArgument()}"));
                         builder.AppendLine(string.Format($"      {argumentAttribute.Help}"));
                         builder.AppendLine();
                     }

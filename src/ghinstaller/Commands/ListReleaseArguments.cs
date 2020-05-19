@@ -5,10 +5,10 @@ namespace ghinstaller.Commands
     [Command("list-release")]
     public class ListReleaseArguments
     {
-        [Argument(ShortName = "-o", LongName = "-owner", Help = "The name of the GitHub Organisation/Owner eg. -o realorko")]
+        [Argument(ShortName = "-o", LongName = "-owner", EnvVar = "GHI_ORGANISATION", Help = "The name of the GitHub Organisation/Owner eg. -o realorko")]
         public string Owner { get; set; }
         
-        [Argument(ShortName = "-r", LongName = "-repository", Help = "The name of the GitHub Organisation eg. -r dotnet-cli-zip")]
+        [Argument(ShortName = "-r", LongName = "-repository", EnvVar = "GHI_REPOSITORY", Help = "The name of the GitHub Organisation eg. -r dotnet-cli-zip")]
         public string Repository { get; set; }
         
         [Argument(ShortName = "-t", LongName = "-tarball", Help = "Only output the tarball url of the release eg. -t")]

@@ -23,10 +23,32 @@ namespace ghinstaller.Commands
                 return -1;
             }
 
+            
             var release = GitHubClient.ListReleases(args.Owner, args.Repository);
 
             if (release == null)
             {
+                var tags = GitHubClient.ListTags(args.Owner, args.Repository);
+
+                if (tags != null && tags.Count > 0)
+                {
+                    if (args.TarballOnly)
+                    {
+                        Console.WriteLine($"{tags[0].TarBallUrl}");
+                        return 0;
+                    }
+                    
+                    if (args.ZipballOnly)
+                    {
+                        Console.WriteLine($"{tags[0].ZipBallUrl}");
+                        return 0;
+                    }
+                    
+                    Console.WriteLine($"{tags[0].TarBallUrl}");
+                    Console.WriteLine($"{tags[0].ZipBallUrl}");
+                    return 0;
+                }
+                
                 return -1;
             }
             

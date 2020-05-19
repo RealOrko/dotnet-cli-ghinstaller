@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
@@ -34,9 +35,29 @@ namespace ghinstaller.Modules.Http
             return Deserialize<ReleaseModel>(response);
         }
         
-        private static T Deserialize<T>(HttpResponseMessage response)
+        public static List<TagModel> ListTags(string owner, string repository)
+        {
+            if (owner == null) throw new ArgumentNullException(nameof(owner));
+            if (repository == null) throw new ArgumentNullException(nameof(repository));
+            
+            var uri = $"repos/{owner}/{repository}/tags";
+
+            var response = client
+                .GetAsync(uri)
+                .GetAwaiter()
+                .GetResult();
+
+            return Deserialize<List<TagModel>>(response);
+        }
+        
+        private static T Deserialize<T>(HttpResponseMessage response, bool dumpContent = false)
         {
             var content = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+
+            if (dumpContent)
+            {
+                Console.WriteLine(content);
+            }
 
             if (!response.IsSuccessStatusCode)
             {

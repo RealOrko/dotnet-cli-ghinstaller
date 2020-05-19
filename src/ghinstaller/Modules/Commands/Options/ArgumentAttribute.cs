@@ -11,11 +11,11 @@
         public bool IsVisible { get; set; } = true;
         public string EnvVar { get; set; }
 
-        public string DescribeParam()
+        public string DescribeArgument()
         {
             return EnvVar != null
-                ? $"{LongName} {ShortName} or {EnvVar} env variable"
-                : $"{LongName} {ShortName}";
+                ? $"{LongName}, {ShortName} or {EnvVar} env var"
+                : $"{LongName} or {ShortName}";
         }
     }
 }
