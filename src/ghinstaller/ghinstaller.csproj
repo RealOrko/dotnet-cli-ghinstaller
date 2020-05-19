@@ -7,10 +7,10 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<PackAsTool>false</PackAsTool>
+		<PackAsTool>true</PackAsTool>
 		<ToolCommandName>ghi</ToolCommandName>
 		<PackageOutputPath>../../build</PackageOutputPath>
-		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<PropertyGroup>
