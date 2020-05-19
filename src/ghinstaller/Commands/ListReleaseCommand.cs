@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using ghinstaller.Modules.Commands.Options;
 using ghinstaller.Modules.Commands.Routing;
 using ghinstaller.Modules.Http;
@@ -22,79 +23,92 @@ namespace ghinstaller.Commands
                 CommandParser.Info(typeof(ListReleaseCommand));
                 return -1;
             }
-            
-            var release = GitHubClient.GetReleases(args.Owner, args.Repository);
 
-            if (release == null)
+            var releases = GitHubClient
+                .GetReleases(args.Owner, args.Repository)
+                .OrderByDescending(x => x.CreatedAt)
+                .ToList();
+
+            if (releases != null && releases.Count > 0)
             {
-                var tags = GitHubClient.GetTags(args.Owner, args.Repository);
-
-                if (tags != null && tags.Count > 0)
+                if (!string.IsNullOrEmpty(args.Find))
                 {
-                    Console.WriteLine($"No releases were found but there are {tags.Count} tag(s) available, please try the 'list-tag' command");
-                
-                    if (args.TarballOnly)
+                    releases = releases.Where(x => x.Name.Contains(args.Find)).ToList();
+
+                    if (releases.Count == 0)
                     {
-                        Console.WriteLine($"{tags[0].TarBallUrl}");
-                        return 0;
+                        Console.WriteLine("Not found");
+                        return -1;
                     }
-                    
-                    if (args.ZipballOnly)
-                    {
-                        Console.WriteLine($"{tags[0].ZipBallUrl}");
-                        return 0;
-                    }
-                    
-                    Console.WriteLine($"{tags[0].TarBallUrl}");
-                    Console.WriteLine($"{tags[0].ZipBallUrl}");
-                    return 0;
                 }
-                
-                return -1;
-            }
-            
-            if (args.TarballOnly)
-            {
-                Console.WriteLine($"{release.TarBallUrl}");
-                return 0;
-            }
-            
-            if (args.ZipballOnly)
-            {
-                Console.WriteLine($"{release.ZipBallUrl}");
-                return 0;
-            }
 
-            if (args.AssetsOnly)
-            {
-                if (release.Assets == null || release.Assets.Count == 0)
+                if (releases.Count > 1 && args.AssetsOnly)
                 {
-                    Console.WriteLine("Not found");
+                    Console.WriteLine($"Rate limit check failed. Please use the -f option to target a specific release.");
+                    CommandParser.Info(typeof(ListReleaseCommand));
                     return -1;
                 }
-
-                foreach (var asset in release.Assets)
+                
+                foreach (var release in releases)
                 {
-                    Console.WriteLine($"{asset.Name}");
-                }
+                    if (args.NameOnly)
+                    {
+                        Console.WriteLine($"{release.Name}");
+                    }
+                
+                    if (args.AssetsOnly)
+                    {
+                        var assets = GitHubClient.GetAssets(release);
 
+                        if (!string.IsNullOrEmpty(args.AssetsFind))
+                        {
+                            assets = assets.Where(x => x.Name.Contains(args.AssetsFind)).ToList();
+                        }
+
+                        if (assets == null || assets.Count == 0)
+                        {
+                            Console.WriteLine("No assets found");
+                        }
+
+                        foreach (var asset in assets)
+                        {
+                            if (args.AssetsNameOnly)
+                            {
+                                Console.WriteLine($"{asset.Name}");
+                            }
+
+                            if (args.AssetsUrlOnly)
+                            {
+                                Console.WriteLine($"{asset.DownloadUrl}");
+                            }
+
+                            if (!args.AssetsNameOnly && !args.AssetsUrlOnly)
+                            {
+                                Console.WriteLine($"{asset.Name}");
+                            }
+                        }
+                    }
+                    
+                    if (args.TarballOnly)
+                    {
+                        Console.WriteLine($"{release.TarBallUrl}");
+                    }
+                
+                    if (args.ZipballOnly)
+                    {
+                        Console.WriteLine($"{release.ZipBallUrl}");
+                    }
+                
+                    if (!args.NameOnly && !args.AssetsOnly && !args.TarballOnly && !args.ZipballOnly)
+                    {
+                        Console.WriteLine($"{release.Name}");
+                    }
+                }
+                
                 return 0;
             }
-
-            if (release.Assets == null || release.Assets.Count == 0)
-            {
-                Console.WriteLine($"{release.TarBallUrl}");
-                Console.WriteLine($"{release.ZipBallUrl}");
-            }
-            else
-            {
-                foreach (var asset in release.Assets)
-                {
-                    Console.WriteLine($"{asset.Name}");
-                }
-            }
             
-            return 0;
+            return -1;
         }
     }
 }

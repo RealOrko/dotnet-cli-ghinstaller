@@ -44,26 +44,21 @@ namespace ghinstaller.Commands
                     if (args.NameOnly)
                     {
                         Console.WriteLine($"{tag.Name}");
-                        continue;
                     }
                 
                     if (args.TarballOnly)
                     {
                         Console.WriteLine($"{tag.TarBallUrl}");
-                        continue;
                     }
                 
                     if (args.ZipballOnly)
                     {
                         Console.WriteLine($"{tag.ZipBallUrl}");
-                        continue;
                     }
                 
                     if (!args.NameOnly && !args.TarballOnly && !args.ZipballOnly)
                     {
                         Console.WriteLine($"{tag.Name}");
-                        Console.WriteLine($"{tag.TarBallUrl}");
-                        Console.WriteLine($"{tag.ZipBallUrl}");
                     }
                 }
                 
