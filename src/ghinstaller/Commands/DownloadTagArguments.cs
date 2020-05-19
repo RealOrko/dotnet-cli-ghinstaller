@@ -11,6 +11,9 @@ namespace ghinstaller.Commands
         [Argument(ShortName = "-r", LongName = "-repository", EnvVar = "GHI_REPOSITORY", Help = "The name of the GitHub Organisation eg. -r dotnet-cli-zip")]
         public string Repository { get; set; }
         
+        [Argument(ShortName = "-f", LongName = "-find", Help = "The name of the tag to filter on eg. -f v1")]
+        public string Find { get; set; }
+        
         [Argument(ShortName = "-t", LongName = "-tarball", Help = "Only output the tarball url of the tag eg. -t")]
         public bool TarballOnly { get; set; }
 

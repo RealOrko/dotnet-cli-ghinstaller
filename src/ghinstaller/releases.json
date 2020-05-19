@@ -1,142 +1,302 @@
-{
-  "url": "https://api.github.com/repos/cloudfoundry/bosh-bootloader/releases/21630917",
-  "assets_url": "https://api.github.com/repos/cloudfoundry/bosh-bootloader/releases/21630917/assets",
-  "upload_url": "https://uploads.github.com/repos/cloudfoundry/bosh-bootloader/releases/21630917/assets{?name,label}",
-  "html_url": "https://github.com/cloudfoundry/bosh-bootloader/releases/tag/v8.4.0",
-  "id": 21630917,
-  "node_id": "MDc6UmVsZWFzZTIxNjMwOTE3",
-  "tag_name": "v8.4.0",
-  "target_commitish": "a1f38c83bd02f71bab4dea46ce4cae86336969ff",
-  "name": "v8.4.0",
-  "draft": false,
-  "author": {
-    "login": "cf-infra-bot",
-    "id": 22755819,
-    "node_id": "MDQ6VXNlcjIyNzU1ODE5",
-    "avatar_url": "https://avatars3.githubusercontent.com/u/22755819?v\u003d4",
-    "gravatar_id": "",
-    "url": "https://api.github.com/users/cf-infra-bot",
-    "html_url": "https://github.com/cf-infra-bot",
-    "followers_url": "https://api.github.com/users/cf-infra-bot/followers",
-    "following_url": "https://api.github.com/users/cf-infra-bot/following{/other_user}",
-    "gists_url": "https://api.github.com/users/cf-infra-bot/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/cf-infra-bot/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/cf-infra-bot/subscriptions",
-    "organizations_url": "https://api.github.com/users/cf-infra-bot/orgs",
-    "repos_url": "https://api.github.com/users/cf-infra-bot/repos",
-    "events_url": "https://api.github.com/users/cf-infra-bot/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/cf-infra-bot/received_events",
-    "type": "User",
-    "site_admin": false
+[
+  {
+    "name": "v9001",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v9001",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v9001",
+    "commit": {
+      "sha": "ef5cc68d205373cf13bb6f0bc1c2318d4c42b240",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/ef5cc68d205373cf13bb6f0bc1c2318d4c42b240"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y5MDAx"
   },
-  "prerelease": false,
-  "created_at": "2019-11-20T01:14:18Z",
-  "published_at": "2019-11-20T19:13:11Z",
-  "assets": [
-    {
-      "url": "https://api.github.com/repos/cloudfoundry/bosh-bootloader/releases/assets/16292954",
-      "id": 16292954,
-      "node_id": "MDEyOlJlbGVhc2VBc3NldDE2MjkyOTU0",
-      "name": "bbl-v8.4.0_linux_x86-64",
-      "label": "",
-      "uploader": {
-        "login": "cf-infra-bot",
-        "id": 22755819,
-        "node_id": "MDQ6VXNlcjIyNzU1ODE5",
-        "avatar_url": "https://avatars3.githubusercontent.com/u/22755819?v\u003d4",
-        "gravatar_id": "",
-        "url": "https://api.github.com/users/cf-infra-bot",
-        "html_url": "https://github.com/cf-infra-bot",
-        "followers_url": "https://api.github.com/users/cf-infra-bot/followers",
-        "following_url": "https://api.github.com/users/cf-infra-bot/following{/other_user}",
-        "gists_url": "https://api.github.com/users/cf-infra-bot/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/cf-infra-bot/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/cf-infra-bot/subscriptions",
-        "organizations_url": "https://api.github.com/users/cf-infra-bot/orgs",
-        "repos_url": "https://api.github.com/users/cf-infra-bot/repos",
-        "events_url": "https://api.github.com/users/cf-infra-bot/events{/privacy}",
-        "received_events_url": "https://api.github.com/users/cf-infra-bot/received_events",
-        "type": "User",
-        "site_admin": false
-      },
-      "content_type": "application/octet-stream",
-      "state": "uploaded",
-      "size": 106178651,
-      "download_count": 1614,
-      "created_at": "2019-11-20T19:05:38Z",
-      "updated_at": "2019-11-20T19:05:40Z",
-      "browser_download_url": "https://github.com/cloudfoundry/bosh-bootloader/releases/download/v8.4.0/bbl-v8.4.0_linux_x86-64"
+  {
+    "name": "v9000",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v9000",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v9000",
+    "commit": {
+      "sha": "ef5cc68d205373cf13bb6f0bc1c2318d4c42b240",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/ef5cc68d205373cf13bb6f0bc1c2318d4c42b240"
     },
-    {
-      "url": "https://api.github.com/repos/cloudfoundry/bosh-bootloader/releases/assets/16292955",
-      "id": 16292955,
-      "node_id": "MDEyOlJlbGVhc2VBc3NldDE2MjkyOTU1",
-      "name": "bbl-v8.4.0_osx",
-      "label": "",
-      "uploader": {
-        "login": "cf-infra-bot",
-        "id": 22755819,
-        "node_id": "MDQ6VXNlcjIyNzU1ODE5",
-        "avatar_url": "https://avatars3.githubusercontent.com/u/22755819?v\u003d4",
-        "gravatar_id": "",
-        "url": "https://api.github.com/users/cf-infra-bot",
-        "html_url": "https://github.com/cf-infra-bot",
-        "followers_url": "https://api.github.com/users/cf-infra-bot/followers",
-        "following_url": "https://api.github.com/users/cf-infra-bot/following{/other_user}",
-        "gists_url": "https://api.github.com/users/cf-infra-bot/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/cf-infra-bot/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/cf-infra-bot/subscriptions",
-        "organizations_url": "https://api.github.com/users/cf-infra-bot/orgs",
-        "repos_url": "https://api.github.com/users/cf-infra-bot/repos",
-        "events_url": "https://api.github.com/users/cf-infra-bot/events{/privacy}",
-        "received_events_url": "https://api.github.com/users/cf-infra-bot/received_events",
-        "type": "User",
-        "site_admin": false
-      },
-      "content_type": "application/octet-stream",
-      "state": "uploaded",
-      "size": 108175360,
-      "download_count": 2042,
-      "created_at": "2019-11-20T19:05:40Z",
-      "updated_at": "2019-11-20T19:05:42Z",
-      "browser_download_url": "https://github.com/cloudfoundry/bosh-bootloader/releases/download/v8.4.0/bbl-v8.4.0_osx"
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y5MDAw"
+  },
+  {
+    "name": "v7.0.0-beta.30",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v7.0.0-beta.30",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v7.0.0-beta.30",
+    "commit": {
+      "sha": "6203bbe5da71291ee1bcc749136e187c228078c7",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/6203bbe5da71291ee1bcc749136e187c228078c7"
     },
-    {
-      "url": "https://api.github.com/repos/cloudfoundry/bosh-bootloader/releases/assets/16292956",
-      "id": 16292956,
-      "node_id": "MDEyOlJlbGVhc2VBc3NldDE2MjkyOTU2",
-      "name": "bbl-v8.4.0_windows.exe",
-      "label": "",
-      "uploader": {
-        "login": "cf-infra-bot",
-        "id": 22755819,
-        "node_id": "MDQ6VXNlcjIyNzU1ODE5",
-        "avatar_url": "https://avatars3.githubusercontent.com/u/22755819?v\u003d4",
-        "gravatar_id": "",
-        "url": "https://api.github.com/users/cf-infra-bot",
-        "html_url": "https://github.com/cf-infra-bot",
-        "followers_url": "https://api.github.com/users/cf-infra-bot/followers",
-        "following_url": "https://api.github.com/users/cf-infra-bot/following{/other_user}",
-        "gists_url": "https://api.github.com/users/cf-infra-bot/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/cf-infra-bot/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/cf-infra-bot/subscriptions",
-        "organizations_url": "https://api.github.com/users/cf-infra-bot/orgs",
-        "repos_url": "https://api.github.com/users/cf-infra-bot/repos",
-        "events_url": "https://api.github.com/users/cf-infra-bot/events{/privacy}",
-        "received_events_url": "https://api.github.com/users/cf-infra-bot/received_events",
-        "type": "User",
-        "site_admin": false
-      },
-      "content_type": "application/octet-stream",
-      "state": "uploaded",
-      "size": 106059264,
-      "download_count": 233,
-      "created_at": "2019-11-20T19:05:42Z",
-      "updated_at": "2019-11-20T19:05:45Z",
-      "browser_download_url": "https://github.com/cloudfoundry/bosh-bootloader/releases/download/v8.4.0/bbl-v8.4.0_windows.exe"
-    }
-  ],
-  "tarball_url": "https://api.github.com/repos/cloudfoundry/bosh-bootloader/tarball/v8.4.0",
-  "zipball_url": "https://api.github.com/repos/cloudfoundry/bosh-bootloader/zipball/v8.4.0",
-  "body": "This release includes the following changes\r\n- adds `--metadata-file` flag to the `print-env` command. This allows users to target the environment with Toolsmiths metadata.\r\n\r\nThis release also includes changes to deployment manifests.\r\n- *Current jumpbox-deployment: cloudfoundry/jumpbox-deployment@e8ee1754cd4d86a285bfb6c8be4a913dfdf7a1a5*\r\n- *Current bosh-deployment: cloudfoundry/bosh-deployment@0e349c7a9018041e4e91e1bdf9c13d948272ecda*\r\n- Includes terraform binaries from https://releases.hashicorp.com/terraform\r\n- *Linux sha256: `f1b6529f9a6435b1c47eaaa09060a5cacd40b75b4fef957b771b4be0ff64c06e`*\r\n- *OSX sha256: `ad1c3f07f975f4b9b924dd0a8fc43373d668b4b8488b2fba4a80b95eb6bb9ace`*\r\n- *Windows sha256: `c7ae5bc219e16bb8191867d9965ef63a190dd7844d0fd56fc5b6499c843828bf`*\r\n*Known Issues:* Windows support is incomplete."
-}
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y3LjAuMC1iZXRhLjMw"
+  },
+  {
+    "name": "v7.0.0-beta.29",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v7.0.0-beta.29",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v7.0.0-beta.29",
+    "commit": {
+      "sha": "0d0655662c3143a6275dd7feed1ca40a0d2f89a2",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/0d0655662c3143a6275dd7feed1ca40a0d2f89a2"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y3LjAuMC1iZXRhLjI5"
+  },
+  {
+    "name": "v7.0.0-beta.28",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v7.0.0-beta.28",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v7.0.0-beta.28",
+    "commit": {
+      "sha": "84a90ee8370859b87bae35dd0a722392ffeda135",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/84a90ee8370859b87bae35dd0a722392ffeda135"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y3LjAuMC1iZXRhLjI4"
+  },
+  {
+    "name": "v7.0.0-beta.27",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v7.0.0-beta.27",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v7.0.0-beta.27",
+    "commit": {
+      "sha": "1ea93d83861686d1165b491a3acef69c9817f711",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/1ea93d83861686d1165b491a3acef69c9817f711"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y3LjAuMC1iZXRhLjI3"
+  },
+  {
+    "name": "v7.0.0-beta.26",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v7.0.0-beta.26",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v7.0.0-beta.26",
+    "commit": {
+      "sha": "649b9a675d79dde383b4821791ddf4590a058cb7",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/649b9a675d79dde383b4821791ddf4590a058cb7"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y3LjAuMC1iZXRhLjI2"
+  },
+  {
+    "name": "v7.0.0-beta.25",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v7.0.0-beta.25",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v7.0.0-beta.25",
+    "commit": {
+      "sha": "3a77715f9d5b02136bcb7ae50931bf90555cf2bf",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/3a77715f9d5b02136bcb7ae50931bf90555cf2bf"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y3LjAuMC1iZXRhLjI1"
+  },
+  {
+    "name": "v7.0.0-beta.24",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v7.0.0-beta.24",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v7.0.0-beta.24",
+    "commit": {
+      "sha": "71d76325494d9f70a50bc0bdace7d6c79807e7f1",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/71d76325494d9f70a50bc0bdace7d6c79807e7f1"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y3LjAuMC1iZXRhLjI0"
+  },
+  {
+    "name": "v7.0.0-beta.23",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v7.0.0-beta.23",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v7.0.0-beta.23",
+    "commit": {
+      "sha": "5be5439474a2a1d7d7da58e2873ffcb03f1794ef",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/5be5439474a2a1d7d7da58e2873ffcb03f1794ef"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y3LjAuMC1iZXRhLjIz"
+  },
+  {
+    "name": "v6.51.0",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.51.0",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.51.0",
+    "commit": {
+      "sha": "2acd15650eef815159ecd5a83d021ac456280729",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/2acd15650eef815159ecd5a83d021ac456280729"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjUxLjA\u003d"
+  },
+  {
+    "name": "v6.50.0",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.50.0",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.50.0",
+    "commit": {
+      "sha": "4f0c3a2ce92986be5856c297c26eab3acc262009",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/4f0c3a2ce92986be5856c297c26eab3acc262009"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjUwLjA\u003d"
+  },
+  {
+    "name": "v6.49.0",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.49.0",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.49.0",
+    "commit": {
+      "sha": "d0dfa93bb41add74220345383743f6c7ef32754c",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/d0dfa93bb41add74220345383743f6c7ef32754c"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjQ5LjA\u003d"
+  },
+  {
+    "name": "v6.48.0",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.48.0",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.48.0",
+    "commit": {
+      "sha": "ca3deaa94ad8790dcf9b44190bad91d23b9fd889",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/ca3deaa94ad8790dcf9b44190bad91d23b9fd889"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjQ4LjA\u003d"
+  },
+  {
+    "name": "v6.47.2",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.47.2",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.47.2",
+    "commit": {
+      "sha": "d526c2cb3061d60f05dfff04f5e0ddc011344d1f",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/d526c2cb3061d60f05dfff04f5e0ddc011344d1f"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjQ3LjI\u003d"
+  },
+  {
+    "name": "v6.47.1",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.47.1",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.47.1",
+    "commit": {
+      "sha": "0921a21b7efc94398b790df99a130d7f48936e43",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/0921a21b7efc94398b790df99a130d7f48936e43"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjQ3LjE\u003d"
+  },
+  {
+    "name": "v6.47.0",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.47.0",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.47.0",
+    "commit": {
+      "sha": "fc6aad7f890ae627e33a8d7d514c93a7558678b4",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/fc6aad7f890ae627e33a8d7d514c93a7558678b4"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjQ3LjA\u003d"
+  },
+  {
+    "name": "v6.46.1",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.46.1",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.46.1",
+    "commit": {
+      "sha": "4934877ec33a400786749df4da6872b53d951cac",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/4934877ec33a400786749df4da6872b53d951cac"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjQ2LjE\u003d"
+  },
+  {
+    "name": "v6.46.0",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.46.0",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.46.0",
+    "commit": {
+      "sha": "29d6257f1a0acdb6182f8d1faaf89a37de552434",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/29d6257f1a0acdb6182f8d1faaf89a37de552434"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjQ2LjA\u003d"
+  },
+  {
+    "name": "v6.45.0",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.45.0",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.45.0",
+    "commit": {
+      "sha": "5f9ff16f99a0345f98f147765db0e36aef91c795",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/5f9ff16f99a0345f98f147765db0e36aef91c795"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjQ1LjA\u003d"
+  },
+  {
+    "name": "v6.44.1",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.44.1",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.44.1",
+    "commit": {
+      "sha": "c3b20bfbef49c5d2539cecb0c00cef25b2324c0b",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/c3b20bfbef49c5d2539cecb0c00cef25b2324c0b"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjQ0LjE\u003d"
+  },
+  {
+    "name": "v6.44.0",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.44.0",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.44.0",
+    "commit": {
+      "sha": "5de0f0d02dc7cdd2f9343d83a91712fead428ec2",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/5de0f0d02dc7cdd2f9343d83a91712fead428ec2"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjQ0LjA\u003d"
+  },
+  {
+    "name": "v6.43.1-1",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.43.1-1",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.43.1-1",
+    "commit": {
+      "sha": "10e2e6df83dfc32729cc4eba5f9d50e9c4f76eb8",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/10e2e6df83dfc32729cc4eba5f9d50e9c4f76eb8"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjQzLjEtMQ\u003d\u003d"
+  },
+  {
+    "name": "v6.43.0",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.43.0",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.43.0",
+    "commit": {
+      "sha": "815ea2f3d41a98d7a7e4e520509160ba8b355725",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/815ea2f3d41a98d7a7e4e520509160ba8b355725"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjQzLjA\u003d"
+  },
+  {
+    "name": "v6.42.0",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.42.0",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.42.0",
+    "commit": {
+      "sha": "4947847c552d8aa967d3ad9ed720d74d42f674d3",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/4947847c552d8aa967d3ad9ed720d74d42f674d3"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjQyLjA\u003d"
+  },
+  {
+    "name": "v6.41.0",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.41.0",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.41.0",
+    "commit": {
+      "sha": "dd4c76cddc00dc18dd9e0ab7f369c9425d75624d",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/dd4c76cddc00dc18dd9e0ab7f369c9425d75624d"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjQxLjA\u003d"
+  },
+  {
+    "name": "v6.40.1",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.40.1",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.40.1",
+    "commit": {
+      "sha": "52c972510cf22c31819505bb4ca680493257c798",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/52c972510cf22c31819505bb4ca680493257c798"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjQwLjE\u003d"
+  },
+  {
+    "name": "v6.40.0",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.40.0",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.40.0",
+    "commit": {
+      "sha": "07673feb94139e99a874c5cfd0e1d30f044f4236",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/07673feb94139e99a874c5cfd0e1d30f044f4236"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjQwLjA\u003d"
+  },
+  {
+    "name": "v6.39.1",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.39.1",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.39.1",
+    "commit": {
+      "sha": "efdd631d2f9f411e4474d4e272f93ebeee068600",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/efdd631d2f9f411e4474d4e272f93ebeee068600"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjM5LjE\u003d"
+  },
+  {
+    "name": "v6.39.0",
+    "zipball_url": "https://api.github.com/repos/cloudfoundry/cli/zipball/v6.39.0",
+    "tarball_url": "https://api.github.com/repos/cloudfoundry/cli/tarball/v6.39.0",
+    "commit": {
+      "sha": "607d4f8bedc85a5bc5db68f7f00ef8dbb66047aa",
+      "url": "https://api.github.com/repos/cloudfoundry/cli/commits/607d4f8bedc85a5bc5db68f7f00ef8dbb66047aa"
+    },
+    "node_id": "MDM6UmVmMTIyMjMzNTA6cmVmcy90YWdzL3Y2LjM5LjA\u003d"
+  }
+]

@@ -53,7 +53,7 @@ namespace ghinstaller.Modules.Http
                 .GetAwaiter()
                 .GetResult();
 
-            return Deserialize<List<TagModel>>(response);
+            return Deserialize<List<TagModel>>(response, true);
         }
         
         public static string Download(string url, string targetFileName)

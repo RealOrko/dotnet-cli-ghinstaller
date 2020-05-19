@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using ghinstaller.Modules.Commands.Options;
 using ghinstaller.Modules.Commands.Routing;
 using ghinstaller.Modules.Http;
@@ -27,20 +28,45 @@ namespace ghinstaller.Commands
 
             if (tags != null && tags.Count > 0)
             {
-                if (args.TarballOnly)
+                if (!string.IsNullOrEmpty(args.Find))
                 {
-                    Console.WriteLine($"{tags[0].TarBallUrl}");
-                    return 0;
+                    tags = tags.Where(x => x.Name.Contains(args.Find)).ToList();
+
+                    if (tags.Count == 0)
+                    {
+                        Console.WriteLine("Not found");
+                        return -1;
+                    }
                 }
-                    
-                if (args.ZipballOnly)
+                
+                foreach (var tag in tags)
                 {
-                    Console.WriteLine($"{tags[0].ZipBallUrl}");
-                    return 0;
+                    if (args.NameOnly)
+                    {
+                        Console.WriteLine($"{tag.Name}");
+                        continue;
+                    }
+                
+                    if (args.TarballOnly)
+                    {
+                        Console.WriteLine($"{tag.TarBallUrl}");
+                        continue;
+                    }
+                
+                    if (args.ZipballOnly)
+                    {
+                        Console.WriteLine($"{tag.ZipBallUrl}");
+                        continue;
+                    }
+                
+                    if (!args.NameOnly && !args.TarballOnly && !args.ZipballOnly)
+                    {
+                        Console.WriteLine($"{tag.Name}");
+                        Console.WriteLine($"{tag.TarBallUrl}");
+                        Console.WriteLine($"{tag.ZipBallUrl}");
+                    }
                 }
-                    
-                Console.WriteLine($"{tags[0].TarBallUrl}");
-                Console.WriteLine($"{tags[0].ZipBallUrl}");
+                
                 return 0;
             }
             
