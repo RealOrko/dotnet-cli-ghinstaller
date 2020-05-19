@@ -3,8 +3,6 @@
 set -ex
 set -o pipefail
 
-rm -rf ./build
-dotnet publish ./src/ghinstaller/ -r linux-x64 -o ./build/
 cd ./build 
 
 ./ghi list-tag -o cloudfoundry -r bosh-bootloader
@@ -36,3 +34,5 @@ cd ./build
 ./ghi download-release -o cloudfoundry -r bosh-bootloader -f v8.4.0 -z
 ./ghi download-release -o cloudfoundry -r bosh-bootloader -f v8.4.0 -a
 ./ghi download-release -o cloudfoundry -r bosh-bootloader -f v8.4.0 -a -af linux
+
+echo "Passed!"

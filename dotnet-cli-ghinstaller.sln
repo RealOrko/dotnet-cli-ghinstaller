@@ -21,7 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{AB01F558
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\publish.yml = .github\workflows\publish.yml
 		.github\workflows\build.yml = .github\workflows\build.yml
-		build-and-test.sh = build-and-test.sh
+		build.sh = build.sh
+		test.sh = test.sh
 	EndProjectSection
 EndProject
 Global
