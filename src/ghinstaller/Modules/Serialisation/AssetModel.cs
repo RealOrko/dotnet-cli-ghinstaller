@@ -10,7 +10,7 @@ namespace ghinstaller.Modules.Serialisation
         [JsonPropertyName("url")]
         public string Url { get; set; }
         
-        [JsonPropertyName("")]
+        [JsonPropertyName("browser_download_url")]
         public string DownloadUrl { get; set; }
 
         public override string ToString()

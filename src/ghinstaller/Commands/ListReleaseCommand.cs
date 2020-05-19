@@ -22,16 +22,17 @@ namespace ghinstaller.Commands
                 CommandParser.Info(typeof(ListReleaseCommand));
                 return -1;
             }
-
             
-            var release = GitHubClient.ListReleases(args.Owner, args.Repository);
+            var release = GitHubClient.GetReleases(args.Owner, args.Repository);
 
             if (release == null)
             {
-                var tags = GitHubClient.ListTags(args.Owner, args.Repository);
+                var tags = GitHubClient.GetTags(args.Owner, args.Repository);
 
                 if (tags != null && tags.Count > 0)
                 {
+                    Console.WriteLine($"No releases were found but there are {tags.Count} tag(s) available, please try the 'list-tag' command");
+                
                     if (args.TarballOnly)
                     {
                         Console.WriteLine($"{tags[0].TarBallUrl}");
