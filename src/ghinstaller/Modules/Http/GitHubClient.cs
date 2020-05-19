@@ -79,67 +79,6 @@ namespace ghinstaller.Modules.Http
             return Deserialize<List<AssetModel>>(response);
         }
         
-        public static string Download(string url, string targetFileName)
-        {
-            var clientArgs = CreateNewClient((h) => h.ClientCertificateOptions = ClientCertificateOption.Automatic);
-            using var httpClient = clientArgs.Item2;
-            httpClient.DefaultRequestHeaders.ExpectContinue = true;
-
-            var fileInfo = new FileInfo($"{targetFileName}");
-            using var file = File.Create(fileInfo.FullName);
-
-            var response = clientArgs.Item2.GetAsync($"{url}", HttpCompletionOption.ResponseHeadersRead).GetAwaiter().GetResult();
-            response.EnsureSuccessStatusCode();
-
-            int counter = 0;
-            int totalBytesReadSoFar = 0;
-            const int maxBytesReadableForBuffer = 8192;
-            byte[] buffer = new byte[maxBytesReadableForBuffer];
-            var totalBytes = response.Content.Headers.ContentLength;
-            using var stream = response.Content.ReadAsStreamAsync().GetAwaiter().GetResult();
-
-            while (true)
-            {
-                var bytesRead = stream.Read(buffer, 0, maxBytesReadableForBuffer);
-                if (bytesRead == 0)
-                {
-                    break;
-                }
-
-                file.Write(buffer, 0, bytesRead);
-                totalBytesReadSoFar += bytesRead;
-                counter++;
-
-                if (counter % 200 == 0)
-                {
-                    Console.SetCursorPosition(0, Console.CursorTop);
-                    Console.Write($"{targetFileName}: {totalBytesReadSoFar/1024}/{totalBytes/1024} KB");
-                }
-            }
-
-            Console.SetCursorPosition(0, Console.CursorTop);
-            Console.WriteLine($"{targetFileName}: {totalBytesReadSoFar/1024}/{totalBytes/1024} KB");
-            
-            return fileInfo.FullName;
-        }
-
-        private static string DownloadSimple(string url, string targetFileName)
-        {
-            var clientArgs = CreateNewClient();
-            using var httpClient = clientArgs.Item2;
-
-            var fileInfo = new FileInfo($"{targetFileName}");
-            var response = httpClient.GetAsync($"{url}").GetAwaiter().GetResult();
-            response.EnsureSuccessStatusCode();
-            
-            using var ms = response.Content.ReadAsStreamAsync().GetAwaiter().GetResult();
-            using var fs = File.Create(fileInfo.FullName);
-            ms.Seek(0, SeekOrigin.Begin);
-            ms.CopyTo(fs);
-
-            return fileInfo.FullName;
-        }
-        
         private static (HttpClientHandler, HttpClient) CreateNewClient(Action<HttpClientHandler> handlerCallback = null)
         {
             var httpHandler = new HttpClientHandler();
@@ -152,13 +91,76 @@ namespace ghinstaller.Modules.Http
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.inertia-preview+json"));
 
+            CreateNewClientAuthorisationHeader(httpClient);
+
+            return (httpHandler, httpClient);
+        }
+
+        private static void CreateNewClientAuthorisationHeader(HttpClient httpClient)
+        {
             var token = Environment.GetEnvironmentVariable("GHI_TOKEN");
             if (!string.IsNullOrEmpty(token))
             {
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             }
+        }
+
+        public static string Download(string url, string targetFileName)
+        {
+            var clientArgs = CreateNewClient((h) => h.ClientCertificateOptions = ClientCertificateOption.Automatic);
+            using var httpClient = clientArgs.Item2;
+            httpClient.DefaultRequestHeaders.ExpectContinue = true;
+
+            var fileInfo = new FileInfo($"{targetFileName}");
+            using var file = File.Create(fileInfo.FullName);
+
+            var response = clientArgs.Item2.GetAsync($"{url}", HttpCompletionOption.ResponseHeadersRead).GetAwaiter().GetResult();
+            response.EnsureSuccessStatusCode();
+
+            var counter = 0;
+            long? totalBytes = 0L;
+            var totalBytesReadSoFar = 0;
+            const int maxBytesReadableForBuffer = 8192;
+            var buffer = new byte[maxBytesReadableForBuffer];
+            using var stream = response.Content.ReadAsStreamAsync().GetAwaiter().GetResult();
+
+            while (true)
+            {
+                totalBytes = response.Content.Headers.ContentLength ?? 0L;
+
+                var bytesRead = stream.Read(buffer, 0, maxBytesReadableForBuffer);
+                if (bytesRead == 0)
+                {
+                    break;
+                }
+
+                file.Write(buffer, 0, bytesRead);
+                totalBytesReadSoFar += bytesRead;
+                counter++;
+
+                if (counter % 200 == 0)
+                {
+                    DownloadProgress(targetFileName, totalBytes, totalBytesReadSoFar);
+                }
+            }
+
+            DownloadProgress(targetFileName, totalBytes, totalBytesReadSoFar);
+            Console.WriteLine("");
             
-            return (httpHandler, httpClient);
+            return fileInfo.FullName;
+        }
+
+        private static void DownloadProgress(string targetFileName, long? totalBytes, int totalBytesReadSoFar)
+        {
+            Console.SetCursorPosition(0, Console.CursorTop);
+            if (totalBytes.Value == 0)
+            {
+                Console.Write($"{targetFileName}: {totalBytesReadSoFar / 1024}/??? KB");
+            }
+            else
+            {
+                Console.Write($"{targetFileName}: {totalBytesReadSoFar / 1024}/{totalBytes / 1024} KB");
+            }
         }
 
         private static T Deserialize<T>(HttpResponseMessage response, bool dumpContent = false)
