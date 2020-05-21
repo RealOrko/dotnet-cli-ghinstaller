@@ -7,6 +7,7 @@ namespace ghinstaller.Modules.Process
 {
     public class Process
     {
+        private string _workingDirectory = null;
         private TimeSpan _waitForExit = TimeSpan.FromMinutes(5);
         private Dictionary<string, string> _environmentVariables = new Dictionary<string, string>();
 
@@ -20,14 +21,22 @@ namespace ghinstaller.Modules.Process
             _waitForExit = waitForExit;
         }
 
-        public void ClearEnvironmentVariable(string name)
+        public Process ClearEnvironmentVariable(string name)
         {
             _environmentVariables.Remove(name);
+            return this;
         }
 
-        public void SetEnvironmentVariable(string name, string value)
+        public Process SetEnvironmentVariable(string name, string value)
         {
             _environmentVariables[name] = value;
+            return this;
+        }
+
+        public Process SetWorkingDirectory(string workingDirectory)
+        {
+            _workingDirectory = workingDirectory;
+            return this;
         }
 
         public virtual ProcessResult Execute(string command, params string[] args)
@@ -43,8 +52,15 @@ namespace ghinstaller.Modules.Process
             startInfo.RedirectStandardOutput = true;
             startInfo.RedirectStandardError = true;
 
+            if (!string.IsNullOrEmpty(_workingDirectory))
+            {
+                startInfo.WorkingDirectory = _workingDirectory;
+            }
+
             foreach (var environmentVariable in _environmentVariables)
+            {
                 startInfo.EnvironmentVariables[environmentVariable.Key] = environmentVariable.Value;
+            }
 
             int exitCode;
             using (var process = new System.Diagnostics.Process())
@@ -68,15 +84,36 @@ namespace ghinstaller.Modules.Process
                 }
                 finally
                 {
-                    if (!process.WaitForExit((int)_waitForExit.TotalMilliseconds))
+                    var wasError = false;
+                    try
                     {
-                        process.Kill();
+                        if (!process.WaitForExit((int) _waitForExit.TotalMilliseconds))
+                        {
+                            process.Kill();
+                        }
                     }
-                    exitCode = process.ExitCode;
+                    catch (InvalidOperationException err)
+                    {
+                        wasError = true;
+                    }
+
+                    if (!wasError)
+                    {
+                        exitCode = process.ExitCode;
+                    }
+                    else
+                    {
+                        exitCode = -1;
+                    }
                 }
             }
 
-            return new ProcessResult { ErrorOutput = stderr.ToString(), ExitCode = exitCode, StandardOutput = stdout.ToString() };
+            return new ProcessResult
+            {
+                ErrorOutput = stderr.ToString(), 
+                ExitCode = exitCode, 
+                StandardOutput = stdout.ToString()
+            };
         }
     }
 }

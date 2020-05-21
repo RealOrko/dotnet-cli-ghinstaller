@@ -26,9 +26,31 @@ namespace ghinstaller.Modules.Archiving
                             ExtractFullPath = true,
                             Overwrite = true,
                             WriteSymbolicLink = 
-                                (sourcePath, targetPath) =>
+                                (symbolicLink, actualPath) =>
                                 {
-                                    Console.WriteLine($"Could not write symlink {sourcePath} -> {targetPath}, for more information please see https://github.com/dotnet/runtime/issues/24271");
+                                    if (Process.OperatingSystem.IsLinux() || Process.OperatingSystem.IsMacOS())
+                                    {
+                                        var symbolicLinkDirectory = Path.GetDirectoryName(symbolicLink);
+                                        if (!Directory.Exists(symbolicLinkDirectory))
+                                        {
+                                            Directory.CreateDirectory(symbolicLinkDirectory);
+                                        }
+
+                                        var result = new Process.Process()
+                                            .SetWorkingDirectory(symbolicLinkDirectory)
+                                            .SetEnvironmentVariable("PATH", Environment.GetEnvironmentVariable("PATH"))
+                                            .Execute("ln", "-s", actualPath, symbolicLink);
+
+                                        if (result.HasErrorOutput())
+                                        {
+                                            Console.WriteLine(result.ErrorOutput);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine($"Could not write symlink {symbolicLink} -> {actualPath}, for more information please see https://github.com/dotnet/runtime/issues/24271");
+                                    }
+
                                 }
                         };
                         
@@ -36,5 +58,6 @@ namespace ghinstaller.Modules.Archiving
                     }
                 }
             }
-        }    }
+        }    
+        }
 }
