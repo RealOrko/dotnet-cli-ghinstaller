@@ -5,6 +5,7 @@ set -o pipefail
 
 cd ./build 
 
+# Listing tags
 ./ghi list-tag -o cloudfoundry -r bosh-bootloader
 ./ghi list-tag -o cloudfoundry -r bosh-bootloader -f v8.4.0
 ./ghi list-tag -o cloudfoundry -r bosh-bootloader -n
@@ -15,10 +16,14 @@ cd ./build
 ./ghi list-tag -o cloudfoundry -r bosh-bootloader -f v8.4.0 -t
 ./ghi list-tag -o cloudfoundry -r bosh-bootloader -f v8.4.0 -z
 ./ghi list-tag -o cloudfoundry -r bosh-bootloader -f v8.4.0 -n -t -z
+
+# Downloading tags
 ./ghi download-tag -o cloudfoundry -r bosh-bootloader -f v8.4.0
 ./ghi download-tag -o cloudfoundry -r bosh-bootloader -f v8.4.0 -t
 ./ghi download-tag -o cloudfoundry -r bosh-bootloader -f v8.4.0 -z
 ./ghi download-tag -o cloudfoundry -r bosh-bootloader -f v8.4.0 -t -z
+
+# Listing releases
 ./ghi list-release -o cloudfoundry -r bosh-bootloader
 ./ghi list-release -o cloudfoundry -r bosh-bootloader -n
 ./ghi list-release -o cloudfoundry -r bosh-bootloader -t
@@ -29,10 +34,18 @@ cd ./build
 ./ghi list-release -o cloudfoundry -r bosh-bootloader -f v8.4.0 -z
 ./ghi list-release -o cloudfoundry -r bosh-bootloader -f v8.4.0 -a
 ./ghi list-release -o cloudfoundry -r bosh-bootloader -f v8.4.0 -n -t -z -a
+
+# Downloading releases
 ./ghi download-release -o cloudfoundry -r bosh-bootloader -f v8.4.0
 ./ghi download-release -o cloudfoundry -r bosh-bootloader -f v8.4.0 -t
 ./ghi download-release -o cloudfoundry -r bosh-bootloader -f v8.4.0 -z
 ./ghi download-release -o cloudfoundry -r bosh-bootloader -f v8.4.0 -a
 ./ghi download-release -o cloudfoundry -r bosh-bootloader -f v8.4.0 -a -af linux
+
+# Building a go app
+# TODO
+
+# Building a DOTNET app
+#TODO 
 
 echo "Passed!"

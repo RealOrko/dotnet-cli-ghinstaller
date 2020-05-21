@@ -14,9 +14,9 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Version>0.0.4</Version>
+		<Version>0.0.6</Version>
 		<Authors>RealOrko</Authors>
-		<Description>A quick way of installing github releases on linx-x64/win-x64/osx-x64 :)</Description>
+		<Description>A quick way of installing github releases on linux-x64/win-x64/osx-x64 :)</Description>
 		<PackageId>dotnet-cli-ghinstaller</PackageId>
 		<Title>dotnet cli github binary installer tool</Title>
 		<PackageTags>dotnet,cli,github,release, install</PackageTags>
