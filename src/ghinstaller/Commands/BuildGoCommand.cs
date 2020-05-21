@@ -43,8 +43,8 @@ namespace ghinstaller.Commands
             var process = new Process()
                 .SetWorkingDirectory(args.WorkingDirectory)
                 .SetTimeout(TimeSpan.FromMinutes(args.TimeoutInMinutes))
-                .SetEnvironmentVariable("PATH", Environment.GetEnvironmentVariable("PATH"))
-                .SetEnvironmentVariable("GOPATH", args.GoPath);
+                .SetEnvironmentVariable("GOPATH", args.GoPath)
+                .SetEnvironmentVariable("PATH", Environment.GetEnvironmentVariable("PATH"));
 
             ProcessResult result = null;
 
@@ -59,6 +59,7 @@ namespace ghinstaller.Commands
 
             if (result.ExitCode != 0)
             {
+                CommandParser.Info(typeof(BuildGoCommand));
                 Console.WriteLine(result.ErrorOutput);                
             }
             

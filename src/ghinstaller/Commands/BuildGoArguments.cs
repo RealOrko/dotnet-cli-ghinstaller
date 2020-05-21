@@ -8,7 +8,7 @@ namespace ghinstaller.Commands
         [Argument(ShortName = "-b", LongName = "-binary", EnvVar = "GHI_GO_BINARY", Help = "The path to the go binary or executable eg. -b /usr/bin/go")]
         public string Binary { get; set; }
         
-        [Argument(ShortName = "-a", LongName = "-arguments", EnvVar = "GHI_GO_ARGS", Help = "The parameters for the go binary or executable eg. -a build")]
+        [Argument(ShortName = "-a", LongName = "-arguments", EnvVar = "GHI_GO_ARGS", Help = "The parameters for the go binary or executable eg. -a build or -a get")]
         public string Arguments { get; set; }
 
         [Argument(ShortName = "-d", LongName = "-directory", EnvVar = "GHI_GO_DIRECTORY", Help = "The parameters for the working directory containing the go source code eg. -d ./v1.2/")]
