@@ -16,9 +16,10 @@ namespace ghinstaller.Modules.Process
             _environmentVariables["PATH"] = Environment.GetEnvironmentVariable("PATH");
         }
 
-        public void SetTimeout(TimeSpan waitForExit)
+        public Process SetTimeout(TimeSpan waitForExit)
         {
             _waitForExit = waitForExit;
+            return this;
         }
 
         public Process ClearEnvironmentVariable(string name)
