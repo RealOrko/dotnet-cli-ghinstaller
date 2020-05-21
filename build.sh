@@ -3,5 +3,5 @@
 set -ex
 set -o pipefail
 
-rm -rf ./build
+#rm -rf ./build
 dotnet publish ./src/ghinstaller/ -o ./build/

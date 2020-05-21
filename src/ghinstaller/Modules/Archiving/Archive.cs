@@ -1,52 +1,40 @@
+using System;
 using System.IO;
-using ICSharpCode.SharpZipLib.Core;
-using ICSharpCode.SharpZipLib.Tar;
-using ICSharpCode.SharpZipLib.Zip;
+using System.IO.Compression;
+using SharpCompress.Common;
+using SharpCompress.Readers;
 
 namespace ghinstaller.Modules.Archiving
 {
     public class Archive
     {
-        public static void ExtractTar(string tarArchive, string destinationFolder)
-        {
-            using var inputStream = File.OpenRead(tarArchive);
-
-            using var archive = TarArchive.CreateInputTarArchive(inputStream);
-            archive.ExtractContents(destinationFolder);
-            archive.Close();
-
-            inputStream.Close();
-        }
-        
         public static void ExtractZip(string zipArchive, string destinationFolder)
         {
-            using var inputStream = File.OpenRead(zipArchive);
-            using var archive = new ZipInputStream(inputStream);
-
-            while (archive.GetNextEntry() is ZipEntry zipEntry)
+            ZipFile.ExtractToDirectory(zipArchive, destinationFolder, overwriteFiles:true);
+        }
+        
+        public static void ExtractTar(string tarArchive, string destinationFolder)
+        {
+            using (Stream stream = File.OpenRead(tarArchive))
             {
-                var buffer = new byte[4096];
-
-                var fullUnzippedPath = Path.Combine(destinationFolder, zipEntry.Name);
-                var fullUnzippedDirectory = Path.GetDirectoryName(fullUnzippedPath);
-                if (fullUnzippedDirectory.Length > 0)
+                var reader = ReaderFactory.Open(stream);
+                while (reader.MoveToNextEntry())
                 {
-                    Directory.CreateDirectory(fullUnzippedDirectory);
-                }
-
-                if (Path.GetFileName(fullUnzippedPath).Length == 0)
-                {
-                    continue;
-                }
-
-                using (var streamWriter = File.Create(fullUnzippedPath))
-                {
-                    StreamUtils.Copy(inputStream, streamWriter, buffer);
+                    if (!reader.Entry.IsDirectory)
+                    {
+                        var opt = new ExtractionOptions {
+                            ExtractFullPath = true,
+                            Overwrite = true,
+                            WriteSymbolicLink = 
+                                (sourcePath, targetPath) =>
+                                {
+                                    Console.WriteLine($"Could not write symlink {sourcePath} -> {targetPath}, for more information please see https://github.com/dotnet/runtime/issues/24271");
+                                }
+                        };
+                        
+                        reader.WriteEntryToDirectory(destinationFolder, opt);
+                    }
                 }
             }
-            
-            archive.Close();
-            inputStream.Close();
-        }
-    }
+        }    }
 }
