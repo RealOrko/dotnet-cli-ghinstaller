@@ -14,7 +14,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Version>0.0.3</Version>
+		<Version>0.0.4</Version>
 		<Authors>RealOrko</Authors>
 		<Description>A quick way of installing github releases on linx-x64/win-x64/osx-x64 :)</Description>
 		<PackageId>dotnet-cli-ghinstaller</PackageId>
