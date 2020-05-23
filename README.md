@@ -1,4 +1,8 @@
 # dotnet-cli-ghinstaller
+
+![Build](https://github.com/RealOrko/dotnet-cli-ghinstaller/workflows/Build/badge.svg)
+![Publish](https://github.com/RealOrko/dotnet-cli-ghinstaller/workflows/Publish/badge.svg)
+
 An installer for GitHub releases that contain OS specific binaries for the dotnet cli
 
 ## Why do I need this?
