@@ -29,12 +29,14 @@ namespace ghinstaller.Commands
                 if (zipArchivePaths.Count == 0)
                 {
                     Console.WriteLine($"No zip files found in '{AppContext.BaseDirectory}'");
+                    CommandParser.Info(typeof(UnzipCommand));
                     return -1;
                 }
                 
                 if (zipArchivePaths.Count > 1)
                 {
                     PrintValidInputArchives(zipArchivePaths);
+                    CommandParser.Info(typeof(UnzipCommand));
                     return -1;
                 }
             }
@@ -54,10 +56,12 @@ namespace ghinstaller.Commands
                     var helpInputFiles = Directory.GetFiles(AppContext.BaseDirectory, "*.zip").ToList();
                     if (helpInputFiles.Count == 0)
                     {
+                        CommandParser.Info(typeof(UnzipCommand));
                         return -1;
                     }
                     
                     PrintValidInputArchives(helpInputFiles);
+                    CommandParser.Info(typeof(UnzipCommand));
                     return -1;
                 }
                 
@@ -74,6 +78,7 @@ namespace ghinstaller.Commands
                 return 0;
             }
                 
+            CommandParser.Info(typeof(UnzipCommand));
             return -1;
         }
 

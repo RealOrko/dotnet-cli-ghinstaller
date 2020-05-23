@@ -29,12 +29,14 @@ namespace ghinstaller.Commands
                 if (tarArchivePaths.Count == 0)
                 {
                     Console.WriteLine($"No tar files found in '{AppContext.BaseDirectory}'");
+                    CommandParser.Info(typeof(UntarCommand));
                     return -1;
                 }
                 
                 if (tarArchivePaths.Count > 1)
                 {
                     PrintValidInputArchives(tarArchivePaths);
+                    CommandParser.Info(typeof(UntarCommand));
                     return -1;
                 }
             }
@@ -54,10 +56,12 @@ namespace ghinstaller.Commands
                     var helpInputFiles = Directory.GetFiles(AppContext.BaseDirectory, "*.tar").ToList();
                     if (helpInputFiles.Count == 0)
                     {
+                        CommandParser.Info(typeof(UntarCommand));
                         return -1;
                     }
                     
                     PrintValidInputArchives(helpInputFiles);
+                    CommandParser.Info(typeof(UntarCommand));
                     return -1;
                 }
                 
@@ -74,6 +78,7 @@ namespace ghinstaller.Commands
                 return 0;
             }
                 
+            CommandParser.Info(typeof(UntarCommand));
             return -1;
         }
 

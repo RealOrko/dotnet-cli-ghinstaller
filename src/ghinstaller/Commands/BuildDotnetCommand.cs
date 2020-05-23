@@ -40,7 +40,7 @@ namespace ghinstaller.Commands
                 .SetTimeout(TimeSpan.FromMinutes(args.TimeoutInMinutes))
                 .SetEnvironmentVariable("PATH", Environment.GetEnvironmentVariable("PATH"));
 
-            ProcessResult result = null;
+            var result = ProcessResult.Error(string.Empty);
 
             if (string.IsNullOrEmpty(args.OutputPath))
             {
@@ -53,7 +53,7 @@ namespace ghinstaller.Commands
 
             if (result.ExitCode != 0)
             {
-                CommandParser.Info(typeof(BuildDotnetArguments));
+                CommandParser.Info(typeof(BuildDotnetCommand));
                 Console.WriteLine(result.ErrorOutput);                
             }
             
