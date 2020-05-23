@@ -17,7 +17,7 @@ namespace ghinstaller
             if (args.Length == 0 || args[0] == "--help" || args[0] == "/?" || args[0] == "?")
             {
                 PrintUsage();
-                return 1;
+                return 0;
             }
 
             var result = 0;
