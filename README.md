@@ -13,7 +13,7 @@ You need to install the [DOTNET Core SDK](https://dotnet.microsoft.com/download)
 ## Install
 
 ```
-dotnet tool install --global dotnet-cli-ghinstaller
+dotnet tool install -g dotnet-cli-ghinstaller
 ```
 
 ## Examples
