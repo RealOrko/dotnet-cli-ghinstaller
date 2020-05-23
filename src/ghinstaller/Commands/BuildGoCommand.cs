@@ -44,6 +44,7 @@ namespace ghinstaller.Commands
                 .SetWorkingDirectory(args.WorkingDirectory)
                 .SetTimeout(TimeSpan.FromMinutes(args.TimeoutInMinutes))
                 .SetEnvironmentVariable("GOPATH", args.GoPath)
+                .SetEnvironmentVariable("CGO_ENABLED", "1")
                 .SetEnvironmentVariable("PATH", Environment.GetEnvironmentVariable("PATH"));
 
             ProcessResult result = null;
