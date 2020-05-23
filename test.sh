@@ -43,11 +43,11 @@ cd ./build
 ./ghi download-release -o cloudfoundry -r bosh-bootloader -f v8.4.0 -a -af linux
 
 # Building a go app
-sudo apt install golang 
+sudo apt install -y golang
 ./ghi download-release -o cloudfoundry -r cli -f v6.51.0
 ./ghi untar -t v6.51.0.tar -o ./v6.51.0
 ./ghi build-go -a get -d ./v6.51.0/cloudfoundry-cli-2acd156/ || true
-./ghi build-go -d ./v6.51.0/cloudfoundry-cli-2acd156/ -o ../../cli || true
+./ghi build-go -d ./v6.51.0/cloudfoundry-cli-2acd156/ -o ../../cli
 
 # Building a DOTNET app
 #TODO 
