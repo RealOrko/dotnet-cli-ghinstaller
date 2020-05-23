@@ -56,7 +56,10 @@ cd ..
 ./ghi build-go -d ./v2.7.1/gobuffalo-packr-4b4a3c4/v2/packr2/ -o ../../../../packr2
 ./packr2 --help
 
-# Building a DOTNET app
-#TODO 
+# Building a DOTNET Core app
+./ghi download-tag -o realorko -r dotnet-cli-ghinstaller -f v0.0.6 -t
+./ghi untar -t v0.0.6.tar -o ./v0.0.6
+./ghi build-dotnet -d ./v0.0.6/RealOrko-dotnet-cli-ghinstaller-a697075/src/ghinstaller -o ../../../../build 
+./ghi
 
 echo "Passed!"
