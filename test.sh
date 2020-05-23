@@ -44,10 +44,11 @@ cd ./build
 
 # Building a go app
 sudo apt install -y golang
-./ghi download-release -o cloudfoundry -r cli -f v6.51.0
-./ghi untar -t v6.51.0.tar -o ./v6.51.0
-./ghi build-go -a get -d ./v6.51.0/cloudfoundry-cli-2acd156/ || true
-./ghi build-go -d ./v6.51.0/cloudfoundry-cli-2acd156/ -o ../../cli
+./ghi download-release -o gobuffalo -r packr -f v2.7.1 -t
+./ghi untar -t v2.7.1.tar -o ./v2.7.1
+./ghi build-go -a get -d ./v2.7.1/gobuffalo-packr-4b4a3c4/ || true
+./ghi build-go -d ./v2.7.1/gobuffalo-packr-4b4a3c4/v2/packr2/ -o ../../../../packr2
+./pack2 --help
 
 # Building a DOTNET app
 #TODO 
