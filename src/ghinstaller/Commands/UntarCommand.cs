@@ -71,10 +71,12 @@ namespace ghinstaller.Commands
                     var outputDirectory = Path.GetFileNameWithoutExtension(tarArchivePaths[0]);
                     Console.WriteLine($"The -o parameter is empty, assuming folder {outputDirectory}");
                     Archive.ExtractTar(tarArchivePaths[0], outputDirectory);
+                    Console.WriteLine($"{tarArchivePaths[0]} extracted to {args.OutputDirectory} successfully.");
                     return 0;
                 }
                 
                 Archive.ExtractTar(tarArchivePaths[0], args.OutputDirectory);
+                Console.WriteLine($"{tarArchivePaths[0]} extracted to {args.OutputDirectory} successfully.");
                 return 0;
             }
                 

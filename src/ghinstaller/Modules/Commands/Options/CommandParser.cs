@@ -55,11 +55,6 @@ namespace ghinstaller.Modules.Commands.Options
             return help;
         }
 
-        public static string Info<T>() where T : new()
-        {
-            return Info(typeof(T));
-        }
-
         public static bool IsBindable(Type commandType)
         {
             return commandType.GetCustomAttributes(typeof(BindsAttribute), false).Any();
@@ -95,11 +90,6 @@ namespace ghinstaller.Modules.Commands.Options
             throw new Exception($"Cannot bind parameters for command, there is no BindsAttribute on {commandType.FullName}.");
         }
 
-        public static T GetArguments<T>(string[] args)
-        {
-            return (T) GetArguments(typeof(T), args);
-        }
-
         public static Type FindCommand(string commandAction)
         {
             foreach (var type in typeof(ListReleaseCommand).Assembly.GetTypes())
@@ -113,7 +103,7 @@ namespace ghinstaller.Modules.Commands.Options
                 }
             }
 
-            return default(Type);
+            return default;
         }
     }
 }

@@ -44,6 +44,7 @@ Available commands are:
  - [`unzip`](https://github.com/RealOrko/dotnet-cli-ghinstaller/blob/master/docs/unzip.md)
  - [`build-dotnet`](https://github.com/RealOrko/dotnet-cli-ghinstaller/blob/master/docs/build-dotnet.md)
  - [`build-go`](https://github.com/RealOrko/dotnet-cli-ghinstaller/blob/master/docs/build-golang.md)
+ - [`install`](https://github.com/RealOrko/dotnet-cli-ghinstaller/blob/master/docs/install.md)
 
 ## Uninstall
 

@@ -54,6 +54,7 @@ cd ..
 ./ghi untar -t v2.7.1.tar -o ./v2.7.1
 ./ghi build-go -a get -d ./v2.7.1/gobuffalo-packr-4b4a3c4/v2/packr2/ || true
 ./ghi build-go -d ./v2.7.1/gobuffalo-packr-4b4a3c4/v2/packr2/ -o ../../../../packr2
+./ghi install -b ./packr2
 ./packr2 --help
 
 # Building a DOTNET Core app
