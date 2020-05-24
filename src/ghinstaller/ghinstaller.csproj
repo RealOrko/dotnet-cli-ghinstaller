@@ -29,7 +29,7 @@
 		<VersionPrefix>$(BuildVersion)</VersionPrefix>
 		<AssemblyVersion>$(BuildVersionMajor).0.0</AssemblyVersion>
 		<PackageLicense>http://www.apache.org/licenses/LICENSE-2.0.html</PackageLicense>
-		<PackageProjectUrl>https://github.com/RealOrko/dotnet-cli-zip</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/RealOrko/dotnet-cli-ghinstaller</PackageProjectUrl>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<PackageVersion>$(BuildVersion)</PackageVersion>
 		<IncludeSymbols>true</IncludeSymbols>
