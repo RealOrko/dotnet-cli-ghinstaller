@@ -14,7 +14,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Version>0.0.9</Version>
+		<Version>0.0.10</Version>
 		<Authors>RealOrko</Authors>
 		<Description>A quick way of installing github releases on linux-x64/win-x64/osx-x64 :)</Description>
 		<PackageId>dotnet-cli-ghinstaller</PackageId>
@@ -29,7 +29,7 @@
 		<VersionPrefix>$(BuildVersion)</VersionPrefix>
 		<AssemblyVersion>$(BuildVersionMajor).0.0</AssemblyVersion>
 		<PackageLicense>http://www.apache.org/licenses/LICENSE-2.0.html</PackageLicense>
-		<PackageProjectUrl>https://github.com/RealOrko/dotnet-cli-zip</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/RealOrko/dotnet-cli-ghinstaller</PackageProjectUrl>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<PackageVersion>$(BuildVersion)</PackageVersion>
 		<IncludeSymbols>true</IncludeSymbols>

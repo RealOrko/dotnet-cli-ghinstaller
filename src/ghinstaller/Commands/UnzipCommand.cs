@@ -71,10 +71,12 @@ namespace ghinstaller.Commands
                     var outputDirectory = Path.GetFileNameWithoutExtension(zipArchivePaths[0]);
                     Console.WriteLine($"The -o parameter is empty, assuming folder {outputDirectory}");
                     Archive.ExtractZip(zipArchivePaths[0], outputDirectory);
+                    Console.WriteLine($"{zipArchivePaths[0]} extracted to {args.OutputDirectory} successfully.");
                     return 0;
                 }
                 
                 Archive.ExtractZip(zipArchivePaths[0], args.OutputDirectory);
+                Console.WriteLine($"{zipArchivePaths[0]} extracted to {args.OutputDirectory} successfully.");
                 return 0;
             }
                 
